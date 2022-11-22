@@ -1,0 +1,14 @@
+.header {
+    height: 10rem;
+    background-color: black;
+}
+
+.main {
+    height: 40rem;
+    background-color: white;
+}
+
+.footer {
+    height: 10rem;
+    background-color: green;
+}
