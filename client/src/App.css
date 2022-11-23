@@ -1,14 +1,44 @@
-.header {
-    height: 10rem;
-    background-color: black;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.main {
-    height: 40rem;
+html {
     background-color: white;
+    /* background-image: url(./assets/4k-3d-background.jpg), url(./assets/4k-3d-background-2.jpg); */
+    background-size: cover;
+    background-position: center center;
+    animation: animatedBird 7s ease-in-out alternate infinite;
+
 }
 
-.footer {
+/* @keyframes animatedBird {
+	from { 
+        background-image: url(./assets/4k-3d-background.jpg);
+    }
+	to { 
+        background-image: url(./assets/4k-3d-background-2.jpg);
+    }
+} */
+
+.page-header {
     height: 10rem;
-    background-color: green;
+}
+
+/* h1::before {
+    content: url(./assets/mern-logo.png);
+    height: 10px;
+} */
+
+.page-main {
+    height: 40rem;
+    /* background-color: rgb(125, 125, 125, 0.5); */
+}
+
+.page-footer {
+    position: relative;
+    bottom: 0;
+    height: 10rem;
+    /* background-color: rgb(125, 125, 125, 0.5); */
 }
