@@ -1,14 +1,97 @@
-.header {
-    height: 10rem;
-    background-color: black;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Encode Sans SC', sans-serif;
 }
 
-.main {
-    height: 40rem;
+html {
     background-color: white;
+    /* background-image: url(./assets/4k-3d-background.jpg), url(./assets/4k-3d-background-2.jpg);
+    background-size: cover;
+    background-position: center center;
+    animation: animatedBird 1s ease-in-out alternate infinite; */
+
 }
 
-.footer {
+/* @keyframes animatedBird {
+	from { 
+        background-image: url(./assets/4k-3d-background.jpg);
+    }
+	to { 
+        background-image: url(./assets/4k-3d-background-2.jpg);
+    }
+} */
+
+.page-header {
+    height: 5rem;
+}
+
+.logo-div {
+    width: fit-content;
+}
+
+.mern-logo {
+    width: 5rem;
+}
+
+h1 {
+    height: fit-content;
+}
+
+.mern-trivia {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.page-main {
+
+}
+
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .home-buttons .btn {
+    width: 150px;
+} */
+
+.select-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    width: 150px;
+    margin: 10px;
+}
+
+.page-footer {
+    position: relative;
+    bottom: 0;
     height: 10rem;
-    background-color: green;
+    /* background-color: rgb(125, 125, 125, 0.5); */
+}
+
+/* ----------Tutorial--------------------------------------- */
+
+li:hover {
+    background-color: #772139;
+    color: white;
+}
+
+li.correct {
+    background-color: rgb(53, 212, 53);
+}
+
+li.selected:not(correct) {
+    background-color: rgb(206, 58, 58);
+}
+
+.disabled {
+    pointer-events: none;
 }
