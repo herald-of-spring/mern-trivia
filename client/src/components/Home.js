@@ -3,14 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import auth from '../utils/Auth';
 
 function Home() {
+    console.log(auth.loggedIn());
     const [user, setUser] = useState('');
     const navigate = useNavigate();
-    useEffect(() => {
-        const { data } = auth.getProfile();
-        const username = data.username
-        setUser(username);
-        return username;
-    })
+    // useEffect(() => {
+    //     const { data } = auth.getProfile();
+    //     const username = data.username
+    //     setUser(username);
+    //     return username;
+    // }, [])
 
     return (
         <main className='page-main d-flex justify-content-center align-items-center'>
@@ -18,7 +19,9 @@ function Home() {
             <div className='home-buttons m-5'>
                 <button className='btn' onClick={() => { navigate('/select') }}>Quizzes</button>
                 <button className='btn' onClick={() => { navigate('/profile') }}>Profile</button>
-                <button className='btn' onClick={() => { navigate('/login') }}>Login</button>
+                {auth.loggedIn() 
+                ? (<button className='btn' onClick={auth.logout}>Logout</button>) 
+                : (<button className='btn' onClick={() => { navigate('/login') }}>Login</button>)}
             </div>
         </main>
     )
