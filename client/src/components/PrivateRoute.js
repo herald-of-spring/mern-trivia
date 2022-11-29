@@ -7,7 +7,7 @@ function PrivateRoute({ children}) {
     return (
       auth
           ? children
-          : <Navigate to="/select" />
+          : <Navigate to="/login" />
     );
 }
 
