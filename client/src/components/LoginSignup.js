@@ -1,12 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Login from './Login';
+import Signup from './Signup';
 
 function LoginSignup() {
+    const navigate = useNavigate();
 
     return (
-        <main className='page-main d-flex justify-content-center align-items-center'>
-            <div className='text-center'>Login/Signup</div>
-        </main>
-    )
+      <>
+        <Login />
+        <Signup />
+      </>
+    );
 }
 
 export default LoginSignup
