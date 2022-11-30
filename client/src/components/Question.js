@@ -58,7 +58,7 @@ function Question() {
   }
 
   useEffect(() => {
-    if (questionIndex >= 2) {
+    if (questionIndex >= 10) {
       console.log(questionIndex);
       handleFinish();
     }
