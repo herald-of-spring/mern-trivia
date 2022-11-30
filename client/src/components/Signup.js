@@ -59,17 +59,18 @@ const Signup = () => {
   };
 
   return (
-    <>
-        <div>Signup</div>
+    <div className='bg-grey'>
+        <div className='spacer'></div>
+        <div className='text-center'>Signup</div>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form className='text-center' noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your signup!
         </Alert>
 
         <Form.Group>
-          <Form.Label htmlFor='username'>Username</Form.Label>
+          <Form.Label className="p-1" htmlFor='username'>Username</Form.Label>
           <Form.Control
             type='text'
             placeholder='Create username'
@@ -78,11 +79,11 @@ const Signup = () => {
             value={userFormData.username}
             required
           />
-          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+          <Form.Control.Feedback className='text-faded' type='invalid'>Username is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Label className="p-1" htmlFor='password'>Password</Form.Label>
           <Form.Control
             type='password'
             placeholder='Your password'
@@ -91,16 +92,18 @@ const Signup = () => {
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+          <Form.Control.Feedback className='text-faded' type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
         <Button
+          className='btn-primary'
           disabled={!(userFormData.username && userFormData.password)}
           type='submit'
           variant='success'>
           Submit
         </Button>
+        <div className='spacer'></div>
       </Form>
-    </>
+    </div>
   );
 };
 

@@ -51,8 +51,9 @@ const Login = () => {
 
   return (
     <>
-        <div>Login</div>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <div className='spacer'></div>
+      <div className="text-center">Login</div>
+      <Form className="text-center" noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
@@ -62,7 +63,7 @@ const Login = () => {
           Something went wrong with your login credentials!
         </Alert>
         <Form.Group>
-          <Form.Label htmlFor='username'>Username</Form.Label>
+          <Form.Label className="p-1" htmlFor='username'>Username</Form.Label>
           <Form.Control
             type='text'
             placeholder='Your username'
@@ -71,11 +72,11 @@ const Login = () => {
             value={userFormData.username}
             required
           />
-          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+          <Form.Control.Feedback className="text-faded" type='invalid'>Username is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label className="p-1" htmlFor="password">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -84,17 +85,19 @@ const Login = () => {
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type="invalid">
+          <Form.Control.Feedback className="text-faded" type="invalid">
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
         <Button
+          className="btn-primary"
           disabled={!(userFormData.username && userFormData.password)}
           type="submit"
           variant="success"
         >
           Submit
         </Button>
+        <div className='spacer'></div>
       </Form>
     </>
   );

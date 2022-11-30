@@ -37,6 +37,8 @@ function Settings() {
   }
 	if (!loading) {
 		return (
+      <>
+      <div className='spacer4'></div>
 		  <div className='d-flex flex-column'>
         <div className='text-center'>
           <h2>Select Category:</h2>
@@ -49,11 +51,13 @@ function Settings() {
             ))}
           </select>
         </div>
+        <div className='spacer2'></div>
         <div className='select-buttons'>
           <FetchButton text="Start!" />
-          <button onClick={() => {navigate('/')}} className='btn'>Home</button>
+          <button onClick={() => {navigate('/')}} className='btn text-white'>Home</button>
         </div>
 		  </div>
+      </>
 		);
 	} else {
 		<p>

@@ -56,6 +56,6 @@ function FetchButton(props) {
     navigate('/quiz');
   }
 	// we will resuse this component, so the button text will be passed as props
-  return <button onClick={handleQuery} className='btn'>{props.text}</button>;
+  return <button onClick={handleQuery} className='btn btn-blue'>{props.text}</button>;
 }
 export default FetchButton;

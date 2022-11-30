@@ -108,9 +108,10 @@ function Question() {
     return <div>Loading</div>
   }
   return (
-    <div>
-      <p>Question {questionIndex + 1}</p>
-      <h3>{question.question}</h3>
+    <div className='m-3'>
+      <p className='text-small'>Question {questionIndex + 1}</p>
+      <h3 className='question'>{question.question}</h3>
+      <div className='spacer'></div>
       <ul>
         {options.map((option, i) => (
           <li key={i} onClick={handleListItemClick} className={getClass(option)}>
@@ -118,7 +119,7 @@ function Question() {
           </li>
         ))}
       </ul>
-      <div>
+      <div className='text-small text-right'>
         Score: {score} / {questions.length}
       </div>
     </div>

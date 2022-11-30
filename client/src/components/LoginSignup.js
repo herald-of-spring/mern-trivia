@@ -9,9 +9,11 @@ function LoginSignup() {
     return (
       <div className=''>
         <Login />
+        <div className='spacer'></div>
         <Signup />
+        <div className='spacer2'></div>
         <div className='home-buttons'>
-        <button className='btn' onClick={() => { navigate('/') }}>Home</button>
+        <button className='btn text-white' onClick={() => { navigate('/') }}>Home</button>
       </div>
       </div>
     );

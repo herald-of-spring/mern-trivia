@@ -27,6 +27,11 @@ export const UPDATE_USER = gql`
 mutation updateUser ($username: String!, $questionsAnswered: Int!, $questionsCorrect: Int!) {
   updateUser(username: $username, questionsAnswered: $questionsAnswered, questionsCorrect: $questionsCorrect) {
     _id
+    username
+    questionsCorrect
+    questionsAnswered
+    correctPercent
+    title
   }
 }
 `;

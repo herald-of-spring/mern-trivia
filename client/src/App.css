@@ -7,21 +7,24 @@
 
 html {
     background-color: white;
-    /* background-image: url(./assets/4k-3d-background.jpg), url(./assets/4k-3d-background-2.jpg);
-    background-size: cover;
-    background-position: center center;
-    animation: animatedBird 1s ease-in-out alternate infinite; */
-
+    background-image: url(./assets/Abstract-background-white.jpg);
+    /* background-size: auto; */
+    /* background-position: center center; */
+    animation: bounce 6s ease-in-out alternate infinite;
 }
 
-/* @keyframes animatedBird {
-	from { 
-        background-image: url(./assets/4k-3d-background.jpg);
+@keyframes bounce{
+    0% {
+      background-position: top;
     }
-	to { 
-        background-image: url(./assets/4k-3d-background-2.jpg);
-    }
-} */
+   100% {
+      background-position: left;
+    }   
+}
+
+.bg-grey {
+    background-color: rgb(128,128,128,.1);
+}
 
 .spacer {
     height: 1rem;
@@ -29,6 +32,14 @@ html {
 
 .spacer2 {
     height: 2rem;
+}
+
+.spacer3 {
+    height: 3rem;
+}
+
+.spacer4 {
+    height: 4rem;
 }
 
 .page-header {
@@ -53,10 +64,6 @@ h1 {
     align-items: center;
 }
 
-.page-main {
-
-}
-
 .home-buttons {
     display: flex;
     flex-direction: column;
@@ -78,6 +85,26 @@ h1 {
     margin: 10px;
 }
 
+.btn-blue {
+    background-color: #011598;
+    color: white;
+}
+
+.btn-turq {
+    background-color: #00d8ff;
+    color: white;
+}
+
+.btn-green {
+    background-color: #5fc85b;
+    color: white;
+}
+
+.text-faded {
+    color: gray;
+    font-size: small;
+}
+
 .page-footer {
     position: relative;
     bottom: 0;
@@ -87,17 +114,48 @@ h1 {
 
 /* ----------Tutorial--------------------------------------- */
 
+.welcome {
+    font-size: xx-large;
+}
+
+.question {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgba(1,20,100,255);
+    /* background-color: rgb(128,128,128, .1); */
+    border-bottom: 1px solid;
+}
+
+.text-small {
+    color: gray;
+    font-size: large;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    height: fit-content;
+    min-height: 2rem;
+    vertical-align: text-bottom;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 100;
+}
+
 li:hover {
-    background-color: #772139;
-    color: white;
+    background-color: rgb(128,128,128, .2);
 }
 
 li.correct {
-    background-color: rgb(53, 212, 53);
+    background-color: rgba(102,255,0,.9);
 }
 
 li.selected:not(correct) {
-    background-color: rgb(206, 58, 58);
+    background-color: rgba(255,50,0,.9);
 }
 
 .disabled {
