@@ -24,8 +24,8 @@ mutation addUser($username: String!, $password: String!) {
 `;
 
 export const UPDATE_USER = gql`
-mutation updateUser ($id: ID!, $questionsAnswered: Int!, $questionsCorrect: Int!) {
-  updateUser(_id: $id, questionsAnswered: $questionsAnswered, questionsCorrect: $questionsCorrect) {
+mutation updateUser ($username: String!, $questionsAnswered: Int!, $questionsCorrect: Int!) {
+  updateUser(username: $username, questionsAnswered: $questionsAnswered, questionsCorrect: $questionsCorrect) {
     _id
   }
 }

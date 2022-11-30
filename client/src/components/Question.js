@@ -44,21 +44,21 @@ function Question() {
   const handleFinish = async() => {
     let userData = data?.me || {};
     console.log(userData.questionsAnswered);
-    const id = userData._id
+    const username = userData.username
     const newScore = userData.questionsCorrect + score;
     const newTotal = userData.questionsAnswered + 10;
     console.log(newTotal);
     console.log(newScore);
-    console.log(id);
+    console.log(username);
     const { updatedData } = await updateUser({
-      variables: {id: id , questionsAnswered: newTotal, questionsCorrect: newScore },
+      variables: {username: username , questionsAnswered: newTotal, questionsCorrect: newScore },
     });
     console.log(updatedData);
     navigate('/final');
   }
 
   useEffect(() => {
-    if (questionIndex >= 10) {
+    if (questionIndex >= 2) {
       console.log(questionIndex);
       handleFinish();
     }

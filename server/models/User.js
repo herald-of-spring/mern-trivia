@@ -45,8 +45,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
 userSchema.virtual('correctPercent').get(function () {
     if (this.questionsAnswered == 0) {
         return 0;
+    } else {
+        return this.questionsCorrect * 100 / this.questionsAnswered;
     }
-  return Math.floor(this.questionsCorrect / this.questionsAnswered);
 });
 userSchema.virtual('title').get(function () {
     switch (true) {

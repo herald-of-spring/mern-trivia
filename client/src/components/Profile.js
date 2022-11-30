@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Auth from '../utils/Auth';
 import { GET_ME } from '../utils/queries'
