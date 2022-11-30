@@ -1,5 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
+const { findOneAndUpdate } = require("../models/User");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -39,6 +40,12 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    updateUser: async (parent, {id, answered, correct}, context) => {
+      console.log(answered, correct);
+      const user = await User.findOneAndUpdate({ _id: context._id}, {questionsAnswered: answered, questionsCorrect: correct})
+      console.log('user', user);
+      return { user };
     },
   },
 };

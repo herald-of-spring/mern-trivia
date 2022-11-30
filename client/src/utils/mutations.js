@@ -23,3 +23,11 @@ mutation addUser($username: String!, $password: String!) {
 }
 `;
 
+export const UPDATE_USER = gql`
+mutation updateUser ($id: ID!, $questionsAnswered: Int!, $questionsCorrect: Int!) {
+  updateUser(_id: $id, questionsAnswered: $questionsAnswered, questionsCorrect: $questionsCorrect) {
+    _id
+  }
+}
+`;
+

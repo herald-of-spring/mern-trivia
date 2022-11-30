@@ -6,12 +6,12 @@ function Home() {
     console.log(auth.loggedIn());
     const [user, setUser] = useState('');
     const navigate = useNavigate();
-    // useEffect(() => {
-    //     const { data } = auth.getProfile();
-    //     const username = data.username
-    //     setUser(username);
-    //     return username;
-    // }, [])
+    useEffect(() => {
+        const { data } = auth.getProfile();
+        const username = data.username
+        setUser(username);
+        return username;
+    }, [])
 
     return (
         <main className='page-main d-flex justify-content-center align-items-center'>
