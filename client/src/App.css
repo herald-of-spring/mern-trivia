@@ -23,6 +23,14 @@ html {
     }
 } */
 
+.spacer {
+    height: 1rem;
+}
+
+.spacer2 {
+    height: 2rem;
+}
+
 .page-header {
     height: 5rem;
 }

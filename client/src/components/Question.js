@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Auth from '../utils/Auth'
+import { UPDATE_USER } from '../utils/mutations'
+import { GET_ME } from '../utils/queries'
+import { useMutation, useQuery } from '@apollo/client'
 
 const decodeHTML = function (html) {
   const txt = document.createElement('textarea')
@@ -8,6 +12,8 @@ const decodeHTML = function (html) {
   return txt.value
 }
 function Question() {
+  const [updateUser, { error }] = useMutation(UPDATE_USER);
+  const { loading, data } = useQuery(GET_ME);
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([])
   const [answerSelected, setAnswerSelected] = useState(false)
@@ -34,9 +40,27 @@ function Question() {
   const getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max))
   }
+
+  const handleFinish = async() => {
+    let userData = data?.me || {};
+    console.log(userData.questionsAnswered);
+    const username = userData.username
+    const newScore = userData.questionsCorrect + score;
+    const newTotal = userData.questionsAnswered + 10;
+    console.log(newTotal);
+    console.log(newScore);
+    console.log(username);
+    const { updatedData } = await updateUser({
+      variables: {username: username , questionsAnswered: newTotal, questionsCorrect: newScore },
+    });
+    console.log(updatedData);
+    navigate('/final');
+  }
+
   useEffect(() => {
-    if (questionIndex >= 10) {
-      navigate('/final');
+    if (questionIndex >= 2) {
+      console.log(questionIndex);
+      handleFinish();
     }
     if (!question) {
       return;
@@ -46,6 +70,7 @@ function Question() {
     setOptions(answers)
   }, [question])
   const handleListItemClick = (event) => {
+
     setAnswerSelected(true)
     setSelectedAnswer(event.target.textContent)
     if (event.target.textContent === answer) {
