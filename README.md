@@ -11,7 +11,7 @@ A trivia app that supports account creation and basic achievements. It uses the 
 ## Installation
 The project can be installed by cloning this repository and, using node, run `npm run install` to install the necessary modules and run `npm run build` to build the front end files.
 ## Usage
-To start, run `npm run start`. The app should be running on port 3000 as default.
+To start, run `npm run develop`. The app should be running on port 3000 as default.
 ## License
 This application is licensed under [The Unlicense](https://www.choosealicense.com/licenses/unlicense).
 ## Contributing
