@@ -11,8 +11,21 @@ const decodeHTML = function (html) {
   txt.innerHTML = html
   return txt.value
 }
+
 function Question() {
-  const [updateUser, { error }] = useMutation(UPDATE_USER);
+  const [updateUser, { error }] = useMutation(UPDATE_USER, {
+      update(cache, {data: {updateUser}}) {
+        try {
+          cache.writeQuery({
+              query: GET_ME,
+              data: { userData: updateUser },
+          });
+        } catch (e) {
+            console.error(e);
+        }
+      }
+  });
+
   const { loading, data } = useQuery(GET_ME);
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([])
