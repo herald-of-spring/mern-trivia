@@ -12,6 +12,7 @@
 
 # production
 /build
+.eslint
 
 # misc
 .DS_Store
