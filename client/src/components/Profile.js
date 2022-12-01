@@ -12,10 +12,6 @@ function Profile() {
     let userData = data?.me || {};
     console.log('userData', userData)
 
-    const reload = () => {
-        window.location.reload();
-    }
-
     return (
         <main className='page-main d-flex justify-content-center align-items-center'>
             <div className='spacer4'></div>
@@ -32,7 +28,7 @@ function Profile() {
                     <div className='spacer2'></div>
                 </div>)}
             <div className='home-buttons'>
-                <button className='btn btn-blue' onClick={reload}>Update Stats</button>
+                {/* <button className='btn btn-blue' onClick={handleClick}>Update Stats</button> */}
                 <button className='btn text-white' onClick={() => { navigate('/') }}>Home</button>
             </div>
         </main>
