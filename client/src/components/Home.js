@@ -20,7 +20,10 @@ function Home() {
     return (
         <main className='page-main d-flex justify-content-center align-items-center'>
             <div className='spacer4'></div>
-            <div className='text-center welcome'>Welcome {user}!</div>
+            {Auth.loggedIn() 
+             ? <div className='text-center welcome'>Welcome {user}!</div>
+             : <div className='text-center welcome'>Log in to play!</div>
+            }
             <div className='spacer2'></div>
             <div className='home-buttons m-5'>
                 <button className='btn btn-blue' onClick={() => { navigate('/select') }}>Quizzes</button>

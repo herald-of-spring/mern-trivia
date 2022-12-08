@@ -44,11 +44,11 @@ const resolvers = {
       return { token, user };
     },
     updateUser: async (parent, args, context) => {
-      console.log(args, 'Iiiiiiiiiiiiiiiiiiiiiiioooo');
+      console.log(args, '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
       console.log('context', context);
       const user = await User.findOneAndUpdate({username: args.username}, {questionsAnswered: args.questionsAnswered, questionsCorrect: args.questionsCorrect}, { new: true })
       console.log('user', user);
-      return { user };
+      return user ;
     },
   },
 };

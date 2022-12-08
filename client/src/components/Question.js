@@ -13,19 +13,6 @@ const decodeHTML = function (html) {
 }
 
 function Question() {
-  const [updateUser, { error }] = useMutation(UPDATE_USER, {
-      update(cache, {data: {updateUser}}) {
-        try {
-          cache.writeQuery({
-              query: GET_ME,
-              data: { userData: updateUser },
-          });
-        } catch (e) {
-            console.error(e);
-        }
-      }
-  });
-
   const { loading, data } = useQuery(GET_ME);
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([])
@@ -34,6 +21,27 @@ function Question() {
   const [options, setOptions] = useState([])
   const score = useSelector((state) => state.score)
   const encodedQuestions = useSelector((state) => state.questions)
+
+  const updateUserData = (cache, { data }) => {
+    console.log('updateUserData hook', data)
+    cache.modify({
+      id: cache.identify(data),
+      fields: {
+        questionsAnswered(cachedTotal) {
+          return data.questionsAnswered;
+        },
+        correctPercent(cachedPercent) {
+          return data.correctPercent;
+        },
+      },
+      /* broadcast: false // Include this to prevent automatic query refresh */
+    });
+  };
+
+  const [updateUser, { error }] = useMutation(UPDATE_USER, {
+    update: updateUserData
+  });
+
   
   useEffect(() => {
     const decodedQuestions = encodedQuestions.map(q => {
@@ -55,23 +63,27 @@ function Question() {
   }
 
   const handleFinish = async() => {
-    let userData = data?.me || {};
+    const userData = data?.me || {};
     console.log(userData.questionsAnswered);
     const username = userData.username
     const newScore = userData.questionsCorrect + score;
     const newTotal = userData.questionsAnswered + 10;
-    console.log(newTotal);
-    console.log(newScore);
-    console.log(username);
+    const newPercent = newScore / newTotal * 100; 
+    console.log('newTotal', newTotal);
+    console.log('newScore', newScore);
+    console.log('username', username);
+    console.log('newPercent', newPercent);
+
     const { updatedData } = await updateUser({
-      variables: {username: username , questionsAnswered: newTotal, questionsCorrect: newScore },
+      variables: { username: username , questionsAnswered: newTotal, questionsCorrect: newScore },
     });
     console.log(updatedData);
+
     navigate('/final');
   }
 
   useEffect(() => {
-    if (questionIndex >= 10) {
+    if (questionIndex >= 1) {
       console.log(questionIndex);
       handleFinish();
     }
@@ -134,6 +146,10 @@ function Question() {
       </ul>
       <div className='text-small text-right'>
         Score: {score} / {questions.length}
+      </div>
+      <div className='spacer2'></div>
+      <div className='text-right'>
+          <button className='btn btn-exit' onClick={() => { navigate('/') }}>Exit</button>
       </div>
     </div>
   )

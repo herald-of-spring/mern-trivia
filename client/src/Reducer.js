@@ -9,6 +9,14 @@ const initState = {
   }
   const Reducer = (state = initState, action) => {
     switch (action.type) {
+      // case "GET_ME":
+      //   return {
+      //     ...state,
+      //     options: {
+      //       ...state.options,
+      //       stats: action.value
+      //     }
+      //   }
       case "CHANGE_LOADING":
         return {
           ...state,

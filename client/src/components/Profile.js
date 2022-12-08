@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { GET_ME } from '../utils/queries'
 import { useQuery } from '@apollo/client';
 
-// window.location.reload();
-
 function Profile() {
     const navigate = useNavigate();
     const { loading, data } = useQuery(GET_ME);
