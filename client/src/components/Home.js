@@ -21,7 +21,7 @@ function Home() {
         <main className='page-main d-flex justify-content-center align-items-center'>
             <div className='spacer4'></div>
             {Auth.loggedIn() 
-             ? <div className='text-center welcome'>Welcome {user}!</div>
+             ? <div className='text-center welcome'>Welcome, {user}!</div>
              : <div className='text-center welcome'>Log in to play!</div>
             }
             <div className='spacer2'></div>
